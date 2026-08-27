@@ -26,7 +26,7 @@ def test_similar_query_returns_hit() -> None:
 def test_dissimilar_query_returns_miss() -> None:
     cache = ResponseCache(ttl_seconds=60, similarity_threshold=0.9)
     cache.set("Summarize the refund policy", "Refund policy summary")
-    cached, score = cache.get("What is the weather today?")
+    cached, _ = cache.get("What is the weather today?")
     assert cached is None
 
 
